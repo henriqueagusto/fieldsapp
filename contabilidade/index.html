@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plārufrda • Organize sua vida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- claro para escuro-->
+    <div class="theme-switcher-container">
+        <button id="themeToggle" class="theme-switcher" aria-label="Alternar tema">
+            <span class="sun-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 16a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-9-5a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1zm16 0a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1zm-2.3-7.3a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0zM6.3 17.7a1 1 0 0 1 0 1.4l-.7.7a1 1 0 0 1-1.4-1.4l.7-.7a1 1 0 0 1 1.4 0zm12.7 1.4a1 1 0 0 1-1.4 0l-.7-.7a1 1 0 0 1 1.4-1.4l.7.7a1 1 0 0 1 0 1.4zM5.6 6.3a1 1 0 0 1 0-1.4l.7-.7a1 1 0 1 1 1.4 1.4l-.7.7a1 1 0 0 1-1.4 0zM12 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1z"/>
+                </svg>
+            </span>
+            <span class="moon-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.5 4.9l1.4 1.4L5.9 5 4.5 3.6 3.5 4.9zm14.2 14.2 1.4 1.4 1.4-1.4-1.4-1.4-1.4 1.4zM5.9 19l1.4 1.4 1.4-1.4-1.4-1.4L5.9 19zM19 5.9l1.4-1.4 1.4 1.4-1.4 1.4L19 5.9zM1 11h3v2H1v-2zm19 0h3v2h-3v-2z"/>
+                </svg>
+            </span>
+            <span class="toggle-ball"></span>
+        </button>
+        <div class="theme-backgrounds">
+            <span class="light-bg"></span>
+            <span class="dark-bg"></span>
+        </div>
+    </div>
+
+   
+    <!-- Mobile View -->
+    <div class="mobile-view">
+        <div class="status-bar">
+            <span>9:41</span>
+            <span class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </span>
+        </div>
+
+        <header class="mobile-header">
+            <h1 class="app-name">Plārufrda</h1>
+            <button class="hamburger" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <nav class="days-navigation">
+            <div class="day-item">
+                <span class="day-name">Dom</span>
+                <span class="day-number">19</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Seg</span>
+                <span class="day-number">20</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Ter</span>
+                <span class="day-number current-day">21</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Qua</span>
+                <span class="day-number">22</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Qui</span>
+                <span class="day-number">23</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Sex</span>
+                <span class="day-number">24</span>
+            </div>
+            <div class="day-item">
+                <span class="day-name">Sáb</span>
+                <span class="day-number">25</span>
+            </div>
+        </nav>
+
+        <main class="content">
+            <h2 class="current-date">quarta-feira - 21 de agosto</h2>
+
+            <div class="tasks-container">
+                <article class="task-item">
+                    <time class="task-time">9:00</time>
+                    <h3 class="task-title">Assistir aula</h3>
+                    <i class="fas fa-comment task-icon"></i>
+                </article>
+
+                <article class="task-item urgent">
+                    <time class="task-time">11:00</time>
+                    <h3 class="task-title">Ir ao dentista <span class="urgent-badge">Urgente</span></h3>
+                </article>
+
+                <article class="task-item">
+                    <time class="task-time">13:00</time>
+                    <h3 class="task-title">Preparar apresentação</h3>
+                    <div class="subtasks">
+                        <div class="subtask completed">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Criar slides</span>
+                        </div>
+                        <div class="subtask pending">
+                            <i class="fas fa-hourglass-half"></i>
+                            <span>Ensaiar</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="task-item">
+                    <time class="task-time">19:00</time>
+                    <h3 class="task-title">Pagar conta</h3>
+                </article>
+
+                <article class="task-item">
+                    <time class="task-time">19:00</time>
+                    <h3 class="task-title">Pagar conta</h3>
+                </article>
+            </div>
+        </main>
+
+        <button class="add-button" id="addButton">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="menu-items">
+                <a href="#" class="menu-link active">
+                    <i class="far fa-calendar"></i>
+                    Agenda
+                </a>
+                <a href="#" class="menu-link">
+                    <i class="fas fa-dollar-sign"></i>
+                    Financeiro
+                </a>
+                <a href="#" class="menu-link">
+                    <i class="fas fa-chart-pie"></i>
+                    Metas
+                </a>
+                <a href="#" class="menu-link">
+                    <i class="fas fa-cog"></i>
+                    Configurações
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Desktop View -->
+    <div class="desktop-view">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="dot dot-blue"></div>
+                    <div class="dot dot-orange"></div>
+                    <div class="dot dot-cyan"></div>
+                </div>
+                <h1 class="logo-text">PlanejAí</h1>
+            </div>
+
+            <nav class="main-menu">
+                <a href="agenda.html" class="menu-item active">
+                    <div class="menu-icon">
+                        <i class="far fa-calendar"></i>
+                    </div>
+                    <div>Agenda</div>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div>Financeiro</div>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div>Metas</div>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <div class="menu-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div>Configurações</div>
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Usuário</span>
+                    <span class="user-email">usuario@exemplo.com</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h1 class="section-title">Agenda & Tarefas Diárias</h1>
+                <button class="add-task-btn">
+                    <i class="fas fa-plus"></i> Nova Tarefa
+                </button>
+            </header>
+
+            <div class="dashboard">
+                <div class="cards-container">
+                    <section class="card finance-card">
+                        <div class="card-header">
+                            <i class="fas fa-wallet"></i>
+                            <h2 class="card-title">Gestão Financeira Simples</h2>
+                        </div>
+                        <div class="balance">R$ 1.500</div>
+                        
+                        <div class="category-list">
+                            <div class="category">
+                                <div class="category-info">
+                                    <div class="category-color yellow"></div>
+                                    <span class="category-name">Transporte</span>
+                                </div>
+                                <span class="category-value">R$ 150</span>
+                            </div>
+                            
+                            <div class="category">
+                                <div class="category-info">
+                                    <div class="category-color cyan"></div>
+                                    <span class="category-name">Comida</span>
+                                </div>
+                                <span class="category-value">R$ 200</span>
+                            </div>
+                            
+                            <div class="category">
+                                <div class="category-info">
+                                    <div class="category-color orange"></div>
+                                    <span class="category-name">Lazer</span>
+                                </div>
+                                <span class="category-value">R$ 100</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card chart-card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-bar"></i>
+                            <h2 class="card-title">Gastos do Mês</h2>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-item">
+                                <span class="chart-label">Comida</span>
+                                <div class="chart-bar">
+                                    <div class="chart-fill bar-cyan" style="width: 70%;" data-value="R$ 700"></div>
+                                </div>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Lazer</span>
+                                <div class="chart-bar">
+                                    <div class="chart-fill bar-orange" style="width: 40%;" data-value="R$ 400"></div>
+                                </div>
+                            </div>
+                            <div class="chart-item">
+                                <span class="chart-label">Transporte</span>
+                                <div class="chart-bar">
+                                    <div class="chart-fill bar-blue" style="width: 30%;" data-value="R$ 300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="cards-container">
+                    <section class="card goals-card">
+                        <div class="card-header">
+                            <i class="fas fa-bullseye"></i>
+                            <h2 class="card-title">Metas & Progresso</h2>
+                        </div>
+                        
+                        <div class="goals-list">
+                            <div class="goal-item completed">
+                                <div class="goal-checkbox">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="goal-text">Ler 12 livros no ano</div>
+                                <div class="goal-progress">100%</div>
+                            </div>
+                            
+                            <div class="goal-item completed">
+                                <div class="goal-checkbox">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="goal-text">Beber água 8x ao dia</div>
+                                <div class="goal-progress">100%</div>
+                            </div>
+
+                            <div class="goal-item in-progress">
+                                <div class="goal-checkbox">
+                                    <div class="progress-circle" style="--progress: 65;"></div>
+                                </div>
+                                <div class="goal-text">Exercícios semanais</div>
+                                <div class="goal-progress">65%</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card reminders-card">
+                        <div class="card-header">
+                            <i class="fas fa-calendar-check"></i>
+                            <h2 class="card-title">Lembretes</h2>
+                        </div>
+                        
+                        <div class="reminders-list">
+                            <div class="reminder-item">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div class="reminder-text">Faltam 10 dias para sua prova!</div>
+                            </div>
+
+                            <div class="reminder-item">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-birthday-cake"></i>
+                                </div>
+                                <div class="reminder-text">Aniversário dia 15 de maio</div>
+                            </div>
+
+                            <div class="reminder-item">
+                                <div class="reminder-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="reminder-text">Comprar mantimentos</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--feed-->
+<div class="site-notifications-system">
+    <!-- Cabeçalho integrado -->
+    <div class="notifications-header">
+      <h3 class="notifications-title">Notificações</h3>
+      <div class="notifications-actions">
+        <button class="mark-all-read">Marcar todas como lidas</button>
+        <div class="notification-count">3 novas</div>
+      </div>
+    </div>
+    
+    <!-- Lista de notificações -->
+    <div class="notifications-list">
+      <!-- Notificação não lida -->
+      <div class="notification-item unread" data-notification-id="1">
+        <div class="notification-icon" style="background-color: #4361ee;">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="notification-content">
+          <div class="notification-header">
+            <span class="notification-source">Agenda</span>
+            <span class="notification-time">há 5 minutos</span>
+          </div>
+          <h4 class="notification-title">Reunião com a equipe de desenvolvimento</h4>
+          <p class="notification-message">Sua reunião começa em 15 minutos. Sala de reuniões B, 3º andar.</p>
+        </div>
+        <div class="notification-actions">
+          <button class="notification-action-btn"><i class="fas fa-check"></i></button>
+          <button class="notification-action-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="notification-unread-indicator"></div>
+      </div>
+      
+      <!-- Notificação lida -->
+      <div class="notification-item" data-notification-id="2">
+        <div class="notification-icon" style="background-color: #7209b7;">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="notification-content">
+          <div class="notification-header">
+            <span class="notification-source">Mensagens</span>
+            <span class="notification-time">há 1 hora</span>
+          </div>
+          <h4 class="notification-title">Novo comentário no seu projeto</h4>
+          <p class="notification-message">João Silva deixou um comentário: "Precisamos revisar o módulo de pagamentos..."</p>
+        </div>
+        <div class="notification-actions">
+          <button class="notification-action-btn"><i class="fas fa-reply"></i></button>
+        </div>
+      </div>
+      
+      <!-- Notificação com ação pendente -->
+      <div class="notification-item priority" data-notification-id="3">
+        <div class="notification-icon" style="background-color: #f72585;">
+          <i class="fas fa-exclamation"></i>
+        </div>
+        <div class="notification-content">
+          <div class="notification-header">
+            <span class="notification-source">Sistema</span>
+            <span class="notification-time">ontem</span>
+          </div>
+          <h4 class="notification-title">Atualização necessária</h4>
+          <p class="notification-message">Sua assinatura expirará em 3 dias. Renove para evitar interrupções.</p>
+        </div>
+        <div class="notification-actions">
+          <button class="notification-action-btn primary">Renovar agora</button>
+        </div>
+        <div class="notification-pulse-effect"></div>
+      </div>
+    </div>
+    
+    <!-- Rodapé integrado -->
+    <div class="notifications-footer">
+      <button class="view-all-btn">Ver todas as notificações</button>
+    </div>
+  </div>
+  <div class="dashboard-container">
+
+    <script src="script.js"></script>
+</body>
+</html>

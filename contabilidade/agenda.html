@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Plārufrda</title>
+    <link rel="stylesheet" href="agenda.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="agenda-container">
+        <!-- Cabeçalho -->
+        <header class="agenda-header">
+            <h1 class="logo">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Agenda Plārufrda</span>
+            </h1>
+            <div class="view-switcher">
+                <button class="view-btn active" data-view="day">Dia</button>
+                <button class="view-btn" data-view="week">Semana</button>
+                <button class="view-btn" data-view="month">Mês</button>
+            </div>
+        </header>
+
+        <!-- Barra de Navegação do Calendário -->
+        <div class="calendar-nav">
+            <button class="nav-btn" id="prev-period">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <h2 class="current-period">Agosto 2023</h2>
+            <button class="nav-btn" id="next-period">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="today-btn" id="go-today">Hoje</button>
+        </div>
+
+        <!-- Visualização Semanal -->
+        <div class="week-view active" id="week-view">
+            <div class="week-header">
+                <div class="week-day">Dom<br>20</div>
+                <div class="week-day">Seg<br>21</div>
+                <div class="week-day active">Ter<br>22</div>
+                <div class="week-day">Qua<br>23</div>
+                <div class="week-day">Qui<br>24</div>
+                <div class="week-day">Sex<br>25</div>
+                <div class="week-day">Sáb<br>26</div>
+            </div>
+            <div class="week-grid">
+                <!-- Grade será preenchida via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Visualização Mensal -->
+        <div class="month-view" id="month-view">
+            <div class="month-grid">
+                <!-- Calendário mensal será preenchido via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Visualização Diária -->
+        <div class="day-view" id="day-view">
+            <div class="day-timeline">
+                <!-- Timeline será preenchida via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Botão de Adicionar Evento -->
+        <button class="add-event-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <!-- Modal de Evento -->
+        <div class="modal" id="event-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Novo Evento</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <form id="event-form">
+                    <div class="form-group">
+                        <label for="event-title">Título</label>
+                        <input type="text" id="event-title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-start-date">Data Início</label>
+                            <input type="date" id="event-start-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-start-time">Hora</label>
+                            <input type="time" id="event-start-time">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-end-date">Data Fim</label>
+                            <input type="date" id="event-end-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-end-time">Hora</label>
+                            <input type="time" id="event-end-time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="event-all-day"> Dia inteiro
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="event-recurring"> Evento recorrente
+                        </label>
+                        <div class="recurrence-options hidden">
+                            <select id="recurrence-type">
+                                <option value="daily">Diariamente</option>
+                                <option value="weekly">Semanalmente</option>
+                                <option value="monthly">Mensalmente</option>
+                                <option value="yearly">Anualmente</option>
+                                <option value="custom">Personalizado</option>
+                            </select>
+                            <div class="custom-recurrence hidden">
+                                <div class="form-group">
+                                    <label>Repetir a cada</label>
+                                    <input type="number" min="1" value="1" id="recurrence-interval">
+                                    <span id="recurrence-frequency-text">dias</span>
+                                </div>
+                                <div class="form-group weekly-options hidden">
+                                    <label>Dias da semana</label>
+                                    <div class="weekday-options">
+                                        <button type="button" data-day="0">Dom</button>
+                                        <button type="button" data-day="1">Seg</button>
+                                        <button type="button" data-day="2">Ter</button>
+                                        <button type="button" data-day="3">Qua</button>
+                                        <button type="button" data-day="4">Qui</button>
+                                        <button type="button" data-day="5">Sex</button>
+                                        <button type="button" data-day="6">Sáb</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Terminar</label>
+                                    <select id="recurrence-end-type">
+                                        <option value="never">Nunca</option>
+                                        <option value="after">Após</option>
+                                        <option value="on">Em</option>
+                                    </select>
+                                    <div class="recurrence-end-options">
+                                        <input type="number" min="1" value="5" id="recurrence-count" class="hidden">
+                                        <input type="date" id="recurrence-end-date" class="hidden">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-reminder">Lembrete</label>
+                        <select id="event-reminder">
+                            <option value="none">Nenhum</option>
+                            <option value="5min">5 minutos antes</option>
+                            <option value="15min">15 minutos antes</option>
+                            <option value="1h">1 hora antes</option>
+                            <option value="1d">1 dia antes</option>
+                            <option value="location">Quando chegar no local</option>
+                        </select>
+                        <div class="location-options hidden">
+                            <input type="text" id="event-location" placeholder="Digite um endereço">
+                            <button type="button" id="set-current-location">
+                                <i class="fas fa-location-arrow"></i> Usar localização atual
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="submit" class="btn-save">Salvar Evento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="agenda.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>
